@@ -1,0 +1,1 @@
+export { AccessibilityComponent } from "./react-accessibility-component";
