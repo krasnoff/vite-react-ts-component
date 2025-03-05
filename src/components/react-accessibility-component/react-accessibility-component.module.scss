@@ -14,23 +14,38 @@
 }
 
 :global(body.grayscale) {
-    filter: grayScale(100%)
+    filter: grayScale(100%);
+    margin-left: 0;
+    margin-right: 0;
+    will-change: transform;
 }
 
 :global(body.contrasthigh) {
-    filter: contrast(2)
+    filter: contrast(2);
+    margin-left: 0;
+    margin-right: 0;
+    will-change: transform;
 }
 
 :global(body.contrastlow) {
-    filter: contrast(0.5)
+    filter: contrast(0.5);
+    margin-left: 0;
+    margin-right: 0;
+    will-change: transform;
 }
 
 :global(body.grayscale-contrasthigh) {
-    filter: grayScale(100%) contrast(2)
+    filter: grayScale(100%) contrast(2);
+    margin-left: 0;
+    margin-right: 0;
+    will-change: transform;
 }
 
 :global(body.grayscale-contrastlow) {
-    filter: grayScale(100%) contrast(0.5)
+    filter: grayScale(100%) contrast(0.5);
+    margin-left: 0;
+    margin-right: 0;
+    will-change: transform;
 }
 
 :global(body.bright-background) {
