@@ -1,15 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Children, useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import styles from './react-accessibility-component.module.scss';
 import AccessibilityLogo from './components/accessibility-logo';
 
 interface AccessibilityComponentProps {
     text?: string;
+    children: React.ReactNode;
 }
 
 const fontSizeArr = [0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.2, 1.4, 1.6, 1.8, 2];
 
-export const AccessibilityComponent: React.FC<AccessibilityComponentProps> = () => {
+export const AccessibilityComponent: React.FC<AccessibilityComponentProps> = (props) => {
     const hostRef = useRef<HTMLDivElement>(null);
     const [componentOpenClose, setcomponentOpenClose] = useState<boolean>(true);
 
@@ -28,50 +29,44 @@ export const AccessibilityComponent: React.FC<AccessibilityComponentProps> = () 
                 if ((event as CustomEvent).detail.message === 'OpenCloseComponent') {
                     setcomponentOpenClose(componentOpenClose => !componentOpenClose);
                 } else if ((event as CustomEvent).detail.message === 'grayScale') {
-                    document.body.classList.remove("contrasthigh");
-                    document.body.classList.remove("contrastlow");
+                    document.getElementById("div-content")?.classList.remove("contrasthigh");
+                    document.getElementById("div-content")?.classList.remove("contrastlow");
                     if ((event as CustomEvent).detail.value) {
-                        document.body.classList.add("grayscale"); 
+                        document.getElementById("div-content")?.classList.add("grayscale"); 
                     }  else {
-                        document.body.classList.remove("grayscale"); 
+                        document.getElementById("div-content")?.classList.remove("grayscale"); 
                     }                 
                 } else if ((event as CustomEvent).detail.message === 'contrast') {
-                    document.body.classList.remove("contrasthigh");
-                    document.body.classList.remove("contrastlow");
+                    document.getElementById("div-content")?.classList.remove("contrasthigh");
+                    document.getElementById("div-content")?.classList.remove("contrastlow");
                     if ((event as CustomEvent).detail.value === 2) {
-                        document.body.classList.add("contrasthigh");
+                        document.getElementById("div-content")?.classList.add("contrasthigh");
                     }
                     if ((event as CustomEvent).detail.value === 0.5) {
-                        document.body.classList.add("contrastlow");
+                        document.getElementById("div-content")?.classList.add("contrastlow");
                     }
                 } else if ((event as CustomEvent).detail.message === 'fontSizeIndex') {
                     let component = document.getElementById('container-accessibility-wrapper');
                     
                     if (+(event as CustomEvent).detail.value === 5) {
-                        document.body.style.removeProperty('zoom');
+                        document.getElementById("div-content")?.style.removeProperty('zoom');
                         component?.style.removeProperty('transform');
                         component?.style.removeProperty('transform-origin');
                         component?.style.removeProperty('bottom');
                     } else {
-                        document.body.style.zoom = fontSizeArr[+(event as CustomEvent).detail.value].toString();
-                        if (component) {
-                            component.style.transform = `scale(${1 / fontSizeArr[+(event as CustomEvent).detail.value]})`
-                            component.style.transformOrigin = 'bottom left'
-                            component.style.bottom = (60 * 1 / fontSizeArr[+(event as CustomEvent).detail.value]).toString() + 'px';
-                        }
-                        
+                        (document.getElementById("div-content") as HTMLElement).style.zoom = fontSizeArr[+(event as CustomEvent).detail.value].toString();                       
                     }
                 } else if ((event as CustomEvent).detail.message === 'brightBackground') {
                     if ((event as CustomEvent).detail.value === true) {
-                        document.body.classList.add("bright-background");
+                        (document.getElementById("div-content") as HTMLElement).classList.add("bright-background");
                     } else {
-                        document.body.classList.remove("bright-background");
+                        (document.getElementById("div-content") as HTMLElement).classList.remove("bright-background");
                     }
                 } else if ((event as CustomEvent).detail.message === 'readableFonts') {
                     if ((event as CustomEvent).detail.value === true) {
-                        document.body.classList.add("readable-fonts");
+                        (document.getElementById("div-content") as HTMLElement).classList.add("readable-fonts");
                     } else {
-                        document.body.classList.remove("readable-fonts");
+                        (document.getElementById("div-content") as HTMLElement).classList.remove("readable-fonts");
                     }
                 } else if ((event as CustomEvent).detail.message === 'markHyperlinks') {
                     if ((event as CustomEvent).detail.value === true) {
@@ -165,11 +160,14 @@ export const AccessibilityComponent: React.FC<AccessibilityComponentProps> = () 
     </div>;
 
     return (
-        <div role="region" aria-label="Sample Accessibility Component" ref={hostRef} className={[
-            styles.wrapper, 
-            componentOpenClose && styles.isWrapperClose,
-            !componentOpenClose && styles.isWrapperOpen
-        ].join(' ')} id="container-accessibility-wrapper"></div>
+        <div className={styles.componentWrapper}>
+            <div id="div-content">{props.children}</div>
+            <div role="region" aria-label="Sample Accessibility Component" ref={hostRef} className={[
+                styles.wrapper, 
+                componentOpenClose && styles.isWrapperClose,
+                !componentOpenClose && styles.isWrapperOpen
+            ].join(' ')} id="container-accessibility-wrapper"></div>
+        </div>
     );
 };
 

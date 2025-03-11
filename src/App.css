@@ -21,3 +21,8 @@ pre {
   font-family: 'Courier New', monospace;
   white-space: "pre-line";
 }
+
+a.black {
+  color: black;
+  text-decoration: none;
+}

@@ -206,6 +206,7 @@ const AccessibilityLogo = (props: AccessibilityLogoProps) => {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-evenly;
+                        align-items: center;
                     }
 
                     .grid-item-active {

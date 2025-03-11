@@ -13,51 +13,55 @@
     transition: left 0.5s ease-in-out;
 }
 
-:global(body.grayscale) {
+:global(body) {
+    margin: 0 0 0 0;
+}
+
+:global(.grayscale) {
     filter: grayScale(100%);
     margin-left: 0;
     margin-right: 0;
     will-change: transform;
 }
 
-:global(body.contrasthigh) {
+:global(.contrasthigh) {
     filter: contrast(2);
     margin-left: 0;
     margin-right: 0;
     will-change: transform;
 }
 
-:global(body.contrastlow) {
+:global(.contrastlow) {
     filter: contrast(0.5);
     margin-left: 0;
     margin-right: 0;
     will-change: transform;
 }
 
-:global(body.grayscale-contrasthigh) {
+:global(.grayscale-contrasthigh) {
     filter: grayScale(100%) contrast(2);
     margin-left: 0;
     margin-right: 0;
     will-change: transform;
 }
 
-:global(body.grayscale-contrastlow) {
+:global(.grayscale-contrastlow) {
     filter: grayScale(100%) contrast(0.5);
     margin-left: 0;
     margin-right: 0;
     will-change: transform;
 }
 
-:global(body.bright-background) {
+:global(.bright-background) {
     background: #fff !important;
     color: #000 !important;
 }
 
-:global(body.readable-fonts) {
+:global(.readable-fonts) {
     font-family: Verdana, Arial, Helvetica, sans-serif !important;
 }
 
-:global(body a) {
+:global(a) {
     text-decoration: underline;
     color: blue;
 }
