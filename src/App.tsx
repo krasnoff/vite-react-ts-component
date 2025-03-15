@@ -13,9 +13,9 @@ function App() {
               <p><code>AccessibilityComponent</code> is a React component designed to enhance web accessibility by providing essential features that support users with disabilities. It is intended to be used as part of a broader strategy for making web applications accessible.</p>
               <h2 id="installation">Installation</h2>
               <p>To install the component, use npm or yarn:</p>
-              <pre><code>npm <span className="hljs-keyword">install</span> accessibility-component
+              <pre><code>npm <span className="hljs-keyword">install</span> react-accessibility-component
               </code></pre><p>or</p>
-              <pre><code>yarn <span className="hljs-keyword">add</span><span className="bash"> accessibility-component</span>
+              <pre><code>yarn <span className="hljs-keyword">add</span><span className="bash"> react-accessibility-component</span>
               </code></pre><h2 id="usage">Usage</h2>
               <p>Import and use the component in your React application:</p>
               <pre><code>
