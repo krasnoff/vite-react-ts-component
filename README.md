@@ -9,13 +9,13 @@ AccessibilityComponent is a React component designed to enhance web accessibilit
 To install the component, use npm or yarn:
 
 ```
-npm install accessibility-component
+npm install react-accessibility-component
 ```
 
 or
 
 ```
-yarn add accessibility-component
+yarn add react-accessibility-component
 ```
 
 ## Usage
