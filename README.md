@@ -2,7 +2,7 @@
 
 ## Overview
 
-AccessibilityComponent is a React component designed to enhance web accessibility by providing essential features that support users with disabilities. It is intended to be used as part of a broader strategy for making web applications accessible.
+`AccessibilityComponent` is a React component designed to enhance web accessibility by providing essential features that support users with disabilities. It is intended to be used as part of a broader strategy for making web applications accessible.
 
 ## Installation
 
@@ -39,9 +39,9 @@ export default App;
 
 ## Important Notice
 
-Using AccessibilityComponent alone does not guarantee full accessibility compliance. It is the responsibility of developers to build their web applications following the WCAG accessibility standards. This includes proper semantic HTML, keyboard navigability, sufficient color contrast, and providing alternative text for images, among other requirements.
+Using `AccessibilityComponent` alone does not guarantee full accessibility compliance. It is the responsibility of developers to build their web applications following the WCAG accessibility standards. This includes proper semantic HTML, keyboard navigability, sufficient color contrast, and providing alternative text for images, among other requirements.
 
-For comprehensive guidance on making your website accessible, refer to the official WCAG guidelines.
+For comprehensive guidance on making your website accessible, refer to the official [WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/) guidelines.
 
 ## License
 
