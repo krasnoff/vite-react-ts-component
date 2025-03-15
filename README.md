@@ -1,4 +1,4 @@
-# Accessibility Component
+# React Vite Accessibility Component
 
 ## Overview
 
