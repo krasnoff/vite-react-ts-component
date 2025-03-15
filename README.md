@@ -23,18 +23,23 @@ yarn add react-accessibility-component
 Import and use the component in your React application:
 
 ```
-import AccessibilityComponent from 'accessibility-component';
+import { AccessibilityComponent } from 'react-accessibility-component'
 
 function App() {
     return (
-        <div>
-            <h1>My Accessible Web App</h1>
-            <AccessibilityComponent />
-        </div>
-    )
+    <AccessibilityComponent>
+      <h1>Vite + React to NPM repository</h1>
+    </AccessibilityComponent>
+  )
 }
 
-export default App;
+export default App
+```
+
+Now add the following css file to the `index.html` file in your project:
+
+```
+<link rel="stylesheet" href="node_modules/react-accessibility-component/dist/react-accessibility-component.css" />
 ```
 
 ## Important Notice
